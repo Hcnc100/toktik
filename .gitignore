@@ -345,3 +345,4 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,android,swift,androidstudio,xcode,flutter
 
 assets/videos/
+assets/videos.zip
