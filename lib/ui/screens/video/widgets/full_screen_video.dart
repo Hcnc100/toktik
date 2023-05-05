@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tok_tik/ui/screens/video/widgets/caption_video.dart';
+import 'package:tok_tik/ui/screens/video/widgets/video_back_ground.dart';
 import 'package:video_player/video_player.dart';
 
 class FullScreenVideo extends StatefulWidget {
@@ -50,7 +52,7 @@ class _FullScreenVideoState extends State<FullScreenVideo> {
                 Positioned(
                   bottom: 40,
                   left: 10,
-                  child: _Caption(caption: widget.caption),
+                  child: CaptionVideo(caption: widget.caption),
                 )
               ],
             ),
@@ -68,49 +70,3 @@ class _FullScreenVideoState extends State<FullScreenVideo> {
   }
 }
 
-class VideoBackground extends StatelessWidget {
-  const VideoBackground({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned.fill(
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Colors.transparent,
-              Colors.black.withOpacity(0.8),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: const [0.8, 1],
-          )
-        ),
-      ),
-    );
-  }
-}
-
-class _Caption extends StatelessWidget {
-  final String caption;
-  const _Caption({
-    super.key,
-    required this.caption,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final style = Theme.of(context).textTheme.bodySmall!.copyWith(
-          color: Colors.white,
-        );
-    return SizedBox(
-      width: size.width * 0.6,
-      child: Text(
-        caption,
-        maxLines: 2,
-        style: style,
-      ),
-    );
-  }
-}
